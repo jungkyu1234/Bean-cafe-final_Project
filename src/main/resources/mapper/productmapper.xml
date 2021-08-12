@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sboot.beancafe.dao.ProductDAO">
+
+<select id="getAllproduct" resultType="com.sboot.beancafe.vo.ProductVO">
+	SELECT * FROM ProductTable order by p_no
+</select>
+
+<select id="getCoffee" resultType="com.sboot.beancafe.vo.ProductVO">
+	SELECT * FROM ProductTable where p_no between 1 and 6 order by p_no
+</select>
+
+<select id="getGoods" resultType="com.sboot.beancafe.vo.ProductVO">
+	SELECT * FROM ProductTable where p_no between 7 and 8
+</select>
+
+<select id="getProductinfo" resultType="com.sboot.beancafe.vo.ProductVO">
+	SELECT * FROM ProductTable where p_name = #{p_name}
+</select>
+
+<select id="getMailing" resultType="com.sboot.beancafe.vo.ProductVO">
+	SELECT * FROM ProductTable where p_no between 9 and 10
+</select>
+
+<select id="getInfo" resultType="com.sboot.beancafe.vo.ProductVO">
+	SELECT * FROM ProductTable where p_name = #{p_name , jdbcType=VARCHAR}
+</select>
+
+<insert id="insertProduct">
+	INSERT INTO ProductTable VALUES (#{p_no}, #{p_name}, #{p_price}, #{p_amount}, #{p_imguri}, #{description})
+</insert>
+
+<update id="updateProduct">
+	UPDATE ProductTable SET p_name=#{p_name} , p_no=#{p_no} , p_price=#{p_price} , p_amount=#{p_amount}, p_imguri=#{p_imguri}, description=#{description} where p_no=#{p_no} 
+</update>
+
+<delete id="deleteProduct">
+	DELETE FROM ProductTable where p_name = #{p_name , jdbcType=VARCHAR}
+</delete>
+<insert id="insertCart">
+	INSERT INTO CART2 (P_IMGURI,P_NAME,P_PRICE,ORDER_NUM,ID) VALUES(#{p_imguri},#{p_name},#{p_price},#{order_num},#{id})
+</insert>
+
+<select id="getCart" resultType="com.sboot.beancafe.vo.CartVO">
+	SELECT * FROM CART2 WHERE ID=#{id}
+</select>
+<delete id="delete">
+	DELETE FROM CART2 WHERE ORDER_NUM =#{order_num}
+</delete>
+</mapper>

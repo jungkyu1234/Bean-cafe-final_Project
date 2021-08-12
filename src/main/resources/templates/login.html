@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+.container {
+	width: 380px;
+	height: 520px;
+	margin: auto;
+	border-radius: 3px;
+	box-shadow: 0px 0px 20px #000;
+}
+.form_container{
+	width:300px;
+	margin:auto;
+}
+.login_title{
+	margin:auto;
+	text-align: center;
+}
+.login_title_p{
+	font-weight: bold;
+	font-size: 22px;
+	display:inline-block;
+	padding-top: 8px;
+}
+.form_input{
+	width:65%;
+	height: 30px;
+	border:1px solid;
+	border-radius :3px;
+	border-color:gray;
+	margin-top:5px;  
+}
+.form_item_name{
+	color:gray;
+	
+  
+}
+.form_item{
+  margin-top:30px;  
+}  
+.form_submit_button{
+    width: 80%; 
+    height: 44px; 
+    background-color: rgb(83, 154, 236); 
+    border: 1px; 
+    border-radius: 3px; 
+    color: white; 
+    font-size: 17px; 
+    font-weight: 500;
+	margin-top:50px;  
+  	margin-left:10%;
+}
+  .form_bot{
+    margin-top:50px; 
+  }
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="form_container">
+			<form action="/login" method="post">
+				<div class="login_title">
+					<p class="login_title_p">로그인</p>
+				</div>
+				<div>
+					<a class="form_item_name">아이디</a>
+				</div>
+				<div>
+					<input type="text" class="form_input" name="user_id"
+						placeholder="아이디입력">
+				</div>
+				<div class="form_item">
+					<a class="form_item_name">비밀번호</a>
+				</div>
+				<div>
+					<input type="password" class="form_input" name="user_pw"
+						placeholder="비밀번호입력">
+				</div>
+
+				<div>
+					<input type="submit" class="form_submit_button" value="login">
+				</div>
+			</form>
+           
+          	<div>
+			 	<div class="form_bot"><p>로그인에 문제가 있나요?</p>
+			 	</div>
+			 	<div> <a href="">아이디가 기억이 안나요</a></div>
+			 	<div> <a href="">비밀번호를 잊어버리셨나요?</a></div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

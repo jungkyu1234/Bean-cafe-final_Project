@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <mapper namespace="mapper.mybatismapper"> -->
+<mapper namespace="com.sboot.beancafe.dao.loginDAO">
+	
+	<select id="findID" resultType="String">
+		SELECT ID FROM MEMBERTABLE
+		WHERE NAME=#{user_name} AND	PHONENUMBER=#{phoneNumber}
+	</select>
+	
+	<select id="return_id" resultType="String">
+		SELECT ID FROM MEMBERTABLE
+		WHERE ID=#{user_id}
+	</select>
+	<select id="return_pw" resultType="String">
+		SELECT PW FROM MEMBERTABLE
+		WHERE ID=#{user_id}
+	</select>
+	
+	<select id="findById" resultType="com.sboot.beancafe.vo.MemberVO">
+		SELECT
+			*
+		 FROM MEMBERTABLE
+		 WHERE ID=#{user_id}
+	</select>
+	
+	<update id="rePW">
+		UPDATE MEMBERTABLE SET PW=#{user_pw} WHERE ID=#{user_id}
+	
+	</update>
+</mapper>

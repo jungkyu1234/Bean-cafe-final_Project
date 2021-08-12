@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <mapper namespace="mapper.mybatismapper"> -->
+<mapper namespace="com.sboot.beancafe.dao.joinDAO">
+	
+	<insert id="joinMember">
+	 INSERT INTO MEMBERTABLE (ID,PW,NAME,PHONENUMBER,ADDRESS,DETAIL_ADDRESS,EMAIL1,EMAIL2,BIRTH_YEAR,BIRTH_MONTH,BIRTH_DAY,ROLE)
+	 VALUES (#{user_id},#{user_pw},#{user_name},#{phoneNumber},#{address},#{detailAddress},#{mail1},#{mail2},#{user_birth_year},#{user_birth_month},#{user_birth_day},'ROLE_USER')
+	</insert>
+	<select id="idcheck" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBERTABLE
+		WHERE ID= #{user_id}
+	</select>
+	<select id="return_id" resultType="String">
+		SELECT ID FROM MEMBERTABLE
+		WHERE ID=#{user_id}
+	</select>
+	<select id="return_pw" resultType="String">
+		SELECT PW FROM MEMBERTABLE
+		WHERE ID=#{user_id}
+	</select>
+	
+	<select id="findById" resultType="com.sboot.beancafe.vo.MemberVO">
+		SELECT * FROM MEMBERTABLE
+		WHERE ID=#{user_id}
+	</select>
+	<delete id="deleteinfo">
+    DELETE FROM MEMBERTABLE where user_id = #{user_id}
+</delete>
+	
+</mapper>

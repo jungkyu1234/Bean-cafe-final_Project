@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.sboot.beancafe.dao.OrderDAO">
+
+<select id="getOrdermem" resultType="com.sboot.beancafe.vo.Order2VO">
+	SELECT * FROM order2 order by order_num
+</select>
+
+<select id="getOrderpro" resultType="com.sboot.beancafe.vo.Order1VO">
+	SELECT * FROM order1 where order_num = #{order_num}
+</select>
+
+<select id="getmsg" resultType="com.sboot.beancafe.vo.Order2VO">
+	SELECT * FROM order2 where order_num = #{order_num}
+</select>
+
+<update id="updatemsg">
+	UPDATE order2 SET or_msg = #{or_msg} where order_num = #{order_num}
+</update>
+
+</mapper>
